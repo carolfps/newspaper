@@ -19,14 +19,51 @@ async function noticiaDetalhe(id){
     divParag.setAttribute('class','mt-4')
     divParag.textContent = noticia.body
 
-    let voltar = document.createElement('a')
-    voltar.setAttribute('class', 'btn btn-primary mt-4')
-    voltar.setAttribute('href', 'index.html')
-    voltar.textContent = 'Voltar'
+    let divLinha = document.createElement('hr')
+    divLinha.setAttribute('class', 'mt-5 border border-dark')
 
+    let divMais = document.createElement('h4')
+    divMais.setAttribute('class', 'mt-4')
+    divMais.textContent = 'LEIA MAIS'
+    
     divDetalhe.appendChild(divHeading)
     divDetalhe.appendChild(divParag)
-    divDetalhe.appendChild(voltar)
+    divDetalhe.appendChild(divLinha)
+    divDetalhe.appendChild(divMais)
+
+    if(id>4){
+        for(let index=0; index<4; index++){
+            let noticiaMais = listaDeNoticias[index]
+
+            let divParagMais = document.createElement('p')
+
+            let divLinkMais = document.createElement('a')
+            divLinkMais.setAttribute('class','text-capitalize text-info')
+            divLinkMais.setAttribute('href', 'detalhe.html?id='+ (index+1))
+            divLinkMais.textContent = noticiaMais.title
+
+            divParagMais.appendChild(divLinkMais)
+            divDetalhe.appendChild(divParagMais)
+            
+        }
+    } else{
+        for(let index=0; index<5; index++){
+            if(index != (id-1)){
+                let noticiaMais = listaDeNoticias[index]
+    
+                let divParagMais = document.createElement('p')
+    
+                let divLinkMais = document.createElement('a')
+                divLinkMais.setAttribute('class','text-capitalize text-info')
+                divLinkMais.setAttribute('href', 'detalhe.html?id='+ (index+1))
+                divLinkMais.textContent = noticiaMais.title
+    
+                divParagMais.appendChild(divLinkMais)
+                divDetalhe.appendChild(divParagMais)
+            } 
+            
+        }
+    }
 
 }
 
