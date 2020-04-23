@@ -2,12 +2,15 @@ let params = new URLSearchParams(document.location.search.substring(1))
 let id = params.get("id")
 
 let divDetalhe = document.getElementById('detalhe-noticia')
+let divSpinner = document.getElementById('spinner')
 
 async function noticiaDetalhe(id){ 
 
     let noticias = await fetch('https://jsonplaceholder.typicode.com/posts')
     
     let listaDeNoticias = await noticias.json()
+
+    divSpinner.remove()
 
     let noticia = listaDeNoticias[id-1]
 

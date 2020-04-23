@@ -1,10 +1,13 @@
 let divlistaDeNoticias = document.getElementById('lista-de-noticias')
+let divSpinner = document.getElementById('spinner')
 
 async function listarNoticias(){ 
 
     let noticias = await fetch('https://jsonplaceholder.typicode.com/posts')
     
     let listaDeNoticias = await noticias.json()
+
+    divSpinner.remove()
 
     listaDeNoticias.forEach(noticia => {
            
