@@ -9,7 +9,7 @@ async function listarNoticias(){
     listaDeNoticias.forEach(noticia => {
            
         let divCol = document.createElement('div')
-        divCol.setAttribute('class','col-3')
+        divCol.setAttribute('class','col-md-3')
     
         let divCard = document.createElement('div')
         divCard.setAttribute('class','card mt-4')
@@ -23,7 +23,7 @@ async function listarNoticias(){
     
         let link = document.createElement('a')
         link.setAttribute('class', 'btn btn-primary')
-        link.setAttribute('href', 'detalhe.html/?id='+noticia.id)
+        link.setAttribute('href', 'detalhe.html?id='+noticia.id)
         link.textContent = 'Ver notícia'
     
         divCard.appendChild(divCardBody)
