@@ -34,8 +34,25 @@ async function noticiaDetalhe(id){
     divDetalhe.appendChild(divLinha)
     divDetalhe.appendChild(divMais)
 
-    if(id>4){
-        for(let index=0; index<4; index++){
+    // if(id>4){
+    //     for(let index=0; index<4; index++){
+    //         let noticiaMais = listaDeNoticias[index]
+
+    //         let divParagMais = document.createElement('p')
+
+    //         let divLinkMais = document.createElement('a')
+    //         divLinkMais.setAttribute('class','text-capitalize text-info')
+    //         divLinkMais.setAttribute('href', 'detalhe.html?id='+ (index+1))
+    //         divLinkMais.textContent = noticiaMais.title
+
+    //         divParagMais.appendChild(divLinkMais)
+    //         divDetalhe.appendChild(divParagMais)
+            
+    //     }
+    // } else{
+    let contador = 1
+    for(let index=0; index<5; index++){
+        if(index != (id-1) && contador<=4){
             let noticiaMais = listaDeNoticias[index]
 
             let divParagMais = document.createElement('p')
@@ -47,26 +64,12 @@ async function noticiaDetalhe(id){
 
             divParagMais.appendChild(divLinkMais)
             divDetalhe.appendChild(divParagMais)
-            
-        }
-    } else{
-        for(let index=0; index<5; index++){
-            if(index != (id-1)){
-                let noticiaMais = listaDeNoticias[index]
-    
-                let divParagMais = document.createElement('p')
-    
-                let divLinkMais = document.createElement('a')
-                divLinkMais.setAttribute('class','text-capitalize text-info')
-                divLinkMais.setAttribute('href', 'detalhe.html?id='+ (index+1))
-                divLinkMais.textContent = noticiaMais.title
-    
-                divParagMais.appendChild(divLinkMais)
-                divDetalhe.appendChild(divParagMais)
-            } 
-            
-        }
+
+            contador++
+        } 
+        
     }
+    // }
 
 }
 
